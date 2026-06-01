@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paleta Circense Atualizada | Olhar em Volta</title>
+  <style>
+    :root {
+      --bg: #191a20;
+      --panel: #25262b;
+      --panel-2: #2d2e34;
+      --text: #f8f3df;
+      --muted: #cfc5a8;
+      --line: rgba(255,255,255,.12);
+
+      --primary-1: #4C87A4;
+      --primary-2: #2F7192;
+      --primary-3: #166083;
+      --primary-4: #0B4B6A;
+      --primary-5: #033851;
+
+      --orange-1: #FFA470;
+      --orange-2: #E67D42;
+      --orange-3: #CF5B1A;
+      --orange-4: #A8430A;
+      --orange-5: #802E00;
+
+      --gold-1: #FFCF70;
+      --gold-2: #E6AE42;
+      --gold-3: #CF921A;
+      --gold-4: #A8720A;
+      --gold-5: #805500;
+
+      --cream-highlight: #FFCF70;
+      --amber-highlight: #E6AE42;
+      --burnt-highlight: #CF921A;
+      --brown-highlight: #A8720A;
+      --deep-brown-highlight: #805500;
+
+      --cream: #FFCF70;
+      --yellow: #E6AE42;
+      --circus-red: #CF5B1A;
+      --deep-blue: #033851;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(207, 91, 26, .16), transparent 26rem),
+        radial-gradient(circle at 85% 5%, rgba(207, 146, 26, .16), transparent 24rem),
+        radial-gradient(circle at 50% 100%, rgba(22, 96, 131, .20), transparent 28rem),
+        linear-gradient(180deg, #16171d 0%, #202126 55%, #17181e 100%);
+      line-height: 1.55;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: clamp(26px, 5vw, 46px);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.035)),
+        rgba(255,255,255,.04);
+      box-shadow: 0 24px 60px rgba(0,0,0,.28);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% -52% auto;
+      width: 66%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 28px solid rgba(207, 146, 26, .12);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold-1);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: .78rem;
+      margin-bottom: 16px;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--gold-1);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 4.8rem);
+      line-height: .95;
+      letter-spacing: -.04em;
+    }
+
+    .subtitle {
+      max-width: 780px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .circus-flag {
+      min-height: 340px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--panel);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      box-shadow: 0 24px 60px rgba(0,0,0,.28);
+    }
+
+    .stripe {
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      padding: 18px 8px;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.82);
+      font-weight: 700;
+    }
+
+    .stripe:nth-child(1) { background: #166083; }
+    .stripe:nth-child(2) { background: #FFCF70; color: #2a250e; }
+    .stripe:nth-child(3) { background: #CF921A; color: #2a250e; }
+    .stripe:nth-child(4) { background: #CF5B1A; }
+    .stripe:nth-child(5) { background: #033851; }
+
+    section {
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: clamp(20px, 4vw, 34px);
+      margin: 18px 0;
+      background: rgba(255,255,255,.045);
+      box-shadow: 0 18px 45px rgba(0,0,0,.2);
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.5rem, 3vw, 2.6rem);
+      letter-spacing: -.03em;
+    }
+
+    .section-sub {
+      margin: 0 0 20px;
+      color: var(--muted);
+      max-width: 850px;
+    }
+
+    .palette-row { margin: 22px 0 30px; }
+
+    .palette-title {
+      color: var(--muted);
+      margin: 0 0 10px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: 1.05fr 1.05fr 2.25fr .95fr .95fr;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--panel-2);
+    }
+
+    .swatch {
+      min-height: 74px;
+      display: grid;
+      align-content: end;
+      padding: 12px;
+      position: relative;
+    }
+
+    .swatch b {
+      font-size: .9rem;
+      letter-spacing: .04em;
+    }
+
+    .swatch small {
+      display: block;
+      color: rgba(255,255,255,.74);
+      font-size: .72rem;
+      margin-top: 2px;
+    }
+
+    .light b, .light small { color: rgba(0,0,0,.72); }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .card {
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 18px;
+      padding: 18px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .card h3 { margin: 0 0 8px; color: var(--text); }
+    .card p { margin: 0; color: var(--muted); }
+
+    .combo {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      height: 96px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      margin-top: 14px;
+    }
+
+    .usage {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .usage-card {
+      min-height: 170px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 18px;
+      background: #101827;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .usage-card::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 18px solid rgba(255,255,255,.08);
+    }
+
+    .usage-card h3 { margin: 0 0 8px; }
+    .usage-card p { color: rgba(255,255,255,.76); margin: 0; }
+
+    .code-box {
+      background: #111216;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      overflow: auto;
+      padding: 18px;
+      color: #e9f2ff;
+      font-family: Consolas, Monaco, monospace;
+      font-size: .92rem;
+      line-height: 1.45;
+    }
+
+    footer {
+      color: var(--muted);
+      padding: 20px 0 0;
+      font-size: .92rem;
+    }
+
+    @media (max-width: 900px) {
+      header, .grid-2, .usage { grid-template-columns: 1fr; }
+      .circus-flag { min-height: 220px; }
+      .swatches { grid-template-columns: 1fr; }
+      .swatch { min-height: 64px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="hero">
+        <div class="kicker">Olhar em Volta · espetáculo infantil</div>
+        <h1>Paleta Circense</h1>
+        <p class="subtitle">
+          Estudo de cores para uma versão infantil do projeto, combinando o imaginário do circo com a linguagem
+          do planetário, do som espacial e da instalação imersiva. A paleta busca alegria, contraste, ludicidade
+          e boa leitura visual para web, cartazes, foyer e materiais de mediação.
+        </p>
+      </div>
+
+      <div class="circus-flag" aria-label="Paleta principal inspirada no circo">
+        <div class="stripe">azul profundo</div>
+        <div class="stripe">luz quente</div>
+        <div class="stripe">dourado</div>
+        <div class="stripe">terracota</div>
+        <div class="stripe">noite azul</div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Paleta principal</h2>
+      <p class="section-sub">
+        A paleta-base usa cinco cores para representar a atmosfera do circo: azul-petróleo para profundidade,
+        bege de lona para acolhimento, dourado para brilho, terracota para energia e roxo profundo para o ambiente noturno do planetário.
+      </p>
+
+      <div class="combo" aria-label="Combinação principal">
+        <div style="background:#166083"></div>
+        <div style="background:#FFCF70"></div>
+        <div style="background:#CF921A"></div>
+        <div style="background:#CF5B1A"></div>
+        <div style="background:#033851"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Uso conceitual</h3>
+          <p>O circo entra como linguagem de encantamento, entrada no imaginário e convite para crianças. O planetário entra como céu, noite azul, domo e escala. A união das duas referências produz uma estética de picadeiro cósmico.</p>
+        </div>
+        <div class="card">
+          <h3>Uso prático</h3>
+          <p>As cores mais fortes devem aparecer em chamadas, botões e títulos. As cores claras servem para fundos, textos de apoio e peças educativas. O roxo/noite azul protege a identidade imersiva do planetário.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tabelas de cores derivadas</h2>
+      <p class="section-sub">Formato inspirado no Paletton: cada cor principal gera uma família com variações claras, médias e escuras, agora com três grupos cromáticos principais.</p>
+
+      <div class="palette-row">
+        <p class="palette-title">Primary color · Azul profundo / céu tecnológico</p>
+        <div class="swatches">
+          <div class="swatch" style="background:var(--primary-1)"><b>#4C87A4</b><small>RGB 76 · 135 · 164</small></div>
+          <div class="swatch" style="background:var(--primary-2)"><b>#2F7192</b><small>RGB 47 · 113 · 146</small></div>
+          <div class="swatch" style="background:var(--primary-3)"><b>#166083</b><small>RGB 22 · 96 · 131</small></div>
+          <div class="swatch" style="background:var(--primary-4)"><b>#0B4B6A</b><small>RGB 11 · 75 · 106</small></div>
+          <div class="swatch" style="background:var(--primary-5)"><b>#033851</b><small>RGB 3 · 56 · 81</small></div>
+        </div>
+      </div>
+
+      <div class="palette-row">
+        <p class="palette-title">Secondary color #1 · Dourado / luz de espetáculo</p>
+        <div class="swatches">
+          <div class="swatch light" style="background:var(--gold-1)"><b>#FFCF70</b><small>RGB 255 · 207 · 112</small></div>
+          <div class="swatch light" style="background:var(--gold-2)"><b>#E6AE42</b><small>RGB 230 · 174 · 66</small></div>
+          <div class="swatch light" style="background:var(--gold-3)"><b>#CF921A</b><small>RGB 207 · 146 · 26</small></div>
+          <div class="swatch" style="background:var(--gold-4)"><b>#A8720A</b><small>RGB 168 · 114 · 10</small></div>
+          <div class="swatch" style="background:var(--gold-5)"><b>#805500</b><small>RGB 128 · 85 · 0</small></div>
+        </div>
+      </div>
+
+      <div class="palette-row">
+        <p class="palette-title">Secondary color #2 · Terracota / calor cênico</p>
+        <div class="swatches">
+          <div class="swatch light" style="background:var(--orange-1)"><b>#FFA470</b><small>RGB 255 · 164 · 112</small></div>
+          <div class="swatch" style="background:var(--orange-2)"><b>#E67D42</b><small>RGB 230 · 125 · 66</small></div>
+          <div class="swatch" style="background:var(--orange-3)"><b>#CF5B1A</b><small>RGB 207 · 91 · 26</small></div>
+          <div class="swatch" style="background:var(--orange-4)"><b>#A8430A</b><small>RGB 168 · 67 · 10</small></div>
+          <div class="swatch" style="background:var(--orange-5)"><b>#802E00</b><small>RGB 128 · 46 · 0</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Aplicações no espetáculo infantil</h2>
+      <p class="section-sub">As combinações abaixo ajudam a definir onde cada cor entra no projeto visual.</p>
+
+      <div class="usage">
+        <div class="usage-card" style="background:linear-gradient(135deg,#166083,#033851)">
+          <h3>Domo e noite azul</h3>
+          <p>Azuis profundos para manter a sensação de céu, domo, mistério e imersão tecnológica.</p>
+        </div>
+        <div class="usage-card" style="background:linear-gradient(135deg,#CF5B1A,#CF921A)">
+          <h3>Chamadas infantis</h3>
+          <p>Vermelho e dourado para botões, títulos, cartazes e momentos de alta energia.</p>
+        </div>
+        <div class="usage-card" style="background:linear-gradient(135deg,#FFCF70,#E67D42); color:#182014;">
+          <h3>Mediação educativa</h3>
+          <p style="color:rgba(0,0,0,.72)">Dourado claro e terracota suave para fichas, textos, atividades, sinalização e materiais de acolhimento.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>CSS para copiar</h2>
+      <p class="section-sub">Variáveis prontas para incorporar no site do projeto ou em uma página específica do espetáculo infantil.</p>
+
+      <pre class="code-box">:root {
+  --primary-1: #4C87A4;
+  --primary-2: #2F7192;
+  --primary-3: #166083;
+  --primary-4: #0B4B6A;
+  --primary-5: #033851;
+
+  --gold-1: #FFCF70;
+  --gold-2: #E6AE42;
+  --gold-3: #CF921A;
+  --gold-4: #A8720A;
+  --gold-5: #805500;
+
+  --orange-1: #FFA470;
+  --orange-2: #E67D42;
+  --orange-3: #CF5B1A;
+  --orange-4: #A8430A;
+  --orange-5: #802E00;
+
+  --cor-ceu-tecnologico: #166083;
+  --cor-luz-espetaculo: #CF921A;
+  --cor-calor-cenico: #CF5B1A;
+  --cor-noite-profunda: #033851;
+}</pre>
+    </section>
+
+    <footer>
+      <p><strong>Olhar em Volta</strong> — estudo cromático para espetáculo infantil imersivo.</p>
+      <p>Documento de trabalho para identidade visual, web, foyer, cartazes e materiais educativos.</p>
+    </footer>
+  </main>
+</body>
+</html>
